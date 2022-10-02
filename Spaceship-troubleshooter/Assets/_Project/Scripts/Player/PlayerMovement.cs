@@ -5,20 +5,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D rb2;
-    public Animator animator;
+    [SerializeField] private Rigidbody2D _rb2;
+    [SerializeField] private Animator _animator;
 
     [SerializeField] private float _movementSpeed = 5f;
 
     private Vector2 _direction;
     private bool _faceRight;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //rb2 = GetComponentInParent<Rigidbody2D>();
-        _faceRight = true;
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2.MovePosition(rb2.position + _direction * _movementSpeed * Time.deltaTime);
+        _rb2.MovePosition(_rb2.position + _direction * _movementSpeed * Time.deltaTime);
     }
 
     public void StopMove()
@@ -36,12 +29,12 @@ public class PlayerMovement : MonoBehaviour
         _direction = Vector2.zero;
     }
 
-    public void HandleMove(Vector2 vector, bool dash)
+    public void HandleMove(Vector2 vector)
     {
-        HandleMove(vector.x, vector.y, dash);
+        HandleMove(vector.x, vector.y);
     }
 
-    public void HandleMove(float x, float y, bool dash)
+    public void HandleMove(float x, float y)
     {
         _direction.x = x;
         _direction.y = y;
@@ -50,13 +43,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (_direction != new Vector2(0, 0))
         {
-            ChangeAnimationDir();
+            SetSpriteDirection(_direction);
         }
     }
 
     private void AnimateMove()
     {
-        animator.SetFloat("Speed", _direction.sqrMagnitude);
+        _animator.SetFloat("Speed", _direction.sqrMagnitude);
+    }
+
+    public void SetSpriteDirection(Vector2 direction)
+    {
+        _direction = direction;
+        if (_direction.x > 0 && _faceRight == true)
+        {
+            ChangeAnimationDir();
+        }
+        if (_direction.x < 0 && _faceRight == false)
+        {
+            ChangeAnimationDir();
+        }
     }
 
     private void ChangeAnimationDir()

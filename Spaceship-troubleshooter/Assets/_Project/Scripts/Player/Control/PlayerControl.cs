@@ -4,27 +4,29 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    [SerializeField] private IWeapon weapon;
+    public bool CanAttack;
+
+    public bool CanMove
+    {
+        get => _canMove;
+        set
+        {
+            _canMove = value;
+            if (value == false)
+            {
+                _playerMovement.StopMove();
+            }
+        }
+    }
+
+    [SerializeField] private WieldingTool _weapon;
 
     private IInputService _inputService;
     private PlayerMovement _playerMovement;
     private HotkeysSystem _hotkeysSystem;
 
     private bool _canMove;
-
-    public bool CanAttack { get; set; }
-
-    public bool CanMove { 
-        get => _canMove;
-        set 
-        {
-            _canMove = value;
-            if(value == false)
-            {
-                _playerMovement.StopMove();
-            }
-        }
-    }
+    private bool _isShootButtonDown;
 
     private void Awake()
     {
@@ -56,7 +58,7 @@ public class PlayerControl : MonoBehaviour
     {
         if(_canMove && _inputService.Axis.sqrMagnitude > 0)
         {
-            _playerMovement.HandleMove(_inputService.Axis, _inputService.IsDashButtonDown());
+            _playerMovement.HandleMove(_inputService.Axis);
         }
         else
         {
@@ -68,7 +70,20 @@ public class PlayerControl : MonoBehaviour
     {
         if(_inputService.IsShootButtonDown() && CanAttack)
         {
-            weapon.Shoot();
+            _isShootButtonDown = true;
+        }
+        else if(_inputService.IsShootButtonReleased())
+        {
+            _isShootButtonDown = false;
+        }
+
+        if(_isShootButtonDown)
+        {
+            _weapon.Shoot();
+        }
+        else
+        {
+            _weapon.StopShoot();
         }
     }
 }

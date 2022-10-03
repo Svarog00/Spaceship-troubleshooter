@@ -10,7 +10,7 @@ public class TroubleGenerator : MonoBehaviour
     public event EventHandler OnNewTroubleAccurringEventHandler;
 
     [SerializeField] private List<Trouble> _troubles;
-    [SerializeField] private float _timeBetweenAccurringTroubles = 10f;
+    [SerializeField] private float _timeBetweenTroubles = 10f;
 
     private float _currentTime;
 
@@ -39,7 +39,7 @@ public class TroubleGenerator : MonoBehaviour
         int random = Random.Range(0, _troubles.Count);
         _troubles[random].ActivateTrouble();
 
-        _currentTime = _timeBetweenAccurringTroubles;
+        _currentTime = _timeBetweenTroubles;
 
         OnNewTroubleAccurringEventHandler?.Invoke(this, EventArgs.Empty);
     }

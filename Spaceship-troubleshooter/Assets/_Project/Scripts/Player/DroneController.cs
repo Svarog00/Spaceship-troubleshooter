@@ -1,10 +1,12 @@
 using Assets._Project.Scripts.Ship;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DroneController : MonoBehaviour
 {
+    [SerializeField] private List<DroneRoot> _drones = new List<DroneRoot>();
+    
     private DroneRoot _activeDrone = null;
-    private DroneRoot[] _drones = new DroneRoot[4];
 
     public void SetActiveDrone(int number)
     {

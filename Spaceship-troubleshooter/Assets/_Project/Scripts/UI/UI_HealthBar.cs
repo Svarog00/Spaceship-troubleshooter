@@ -1,28 +1,29 @@
 using Assets._Project.Scripts.Entities;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+namespace Assets._Project.Scripts.UI
 {
-    [SerializeField] private Slider _healthBarSlider;
-    [SerializeField] private IHealth _healthSource;
-
-    // Start is called before the first frame update
-    void Start()
+    public class HealthBar : MonoBehaviour
     {
-        _healthBarSlider.value = _healthBarSlider.maxValue;
-        _healthSource.OnHealthChangedEventHandler += _healthSource_OnHealthChangedEventHandler;
-    }
+        [SerializeField] private Slider _healthBarSlider;
+        [SerializeField] private IHealth _healthSource;
 
-    private void _healthSource_OnHealthChangedEventHandler(object sender, OnHealthChangedEventArgs e)
-    {
-        _healthBarSlider.value = e.CurrentHealth;
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            _healthBarSlider.value = _healthBarSlider.maxValue;
+            _healthSource.OnHealthChangedEventHandler += _healthSource_OnHealthChangedEventHandler;
+        }
 
-    private void OnDestroy()
-    {
-        _healthSource.OnHealthChangedEventHandler -= _healthSource_OnHealthChangedEventHandler;
+        private void _healthSource_OnHealthChangedEventHandler(object sender, OnHealthChangedEventArgs e)
+        {
+            _healthBarSlider.value = e.CurrentHealth;
+        }
+
+        private void OnDestroy()
+        {
+            _healthSource.OnHealthChangedEventHandler -= _healthSource_OnHealthChangedEventHandler;
+        }
     }
 }

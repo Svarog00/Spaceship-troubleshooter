@@ -1,3 +1,4 @@
+using Assets._Project.Scripts.Entities;
 using Assets._Project.Scripts.Ship;
 using System.Collections.Generic;
 using UnityEngine;

@@ -13,20 +13,19 @@ namespace Assets._Project.Scripts.Entities
     {
         public GameObject TroubleObject => _trouble;
         public DroneModel DroneModel => _droneModel;
-        public IHealth Health => _entityHealth;
 
         public bool IsAvialable => _droneModel.IsAvialable;
 
         [SerializeField] private DroneType _type;
 
         [SerializeField] private float _startFixingTime;
-        [SerializeField] private int _maxHp;
 
+        [SerializeField] private int _maxHp;
+        private int _currentHealth;
+
+        private DroneModel _droneModel;
         private GameObject _trouble;
         private EntityStateMachine _stateMachine;
-
-        private IHealth _entityHealth;
-        private DroneModel _droneModel;
 
         public event EventHandler<OnHealthChangedEventArgs> OnHealthChangedEventHandler;
         public event EventHandler OnGetNewTask;
@@ -39,6 +38,8 @@ namespace Assets._Project.Scripts.Entities
 
         void Awake()
         {
+            _currentHealth = _maxHp;
+
             _droneModel = new DroneModel(_startFixingTime);
             _stateMachine = new EntityStateMachine();
             _stateMachine.States = new Dictionary<Type, IBehaviourState>
@@ -48,23 +49,13 @@ namespace Assets._Project.Scripts.Entities
                 [typeof(IdleState)] = new IdleState(gameObject, _stateMachine)
             };
 
-            _entityHealth = new DroneHealth(_maxHp);
-            _entityHealth.OnHealthChangedEventHandler += _entityHealth_OnHealthChangedEventHandler;
+            OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHealth });
         }
 
         // Start is called before the first frame update
         void Start()
         {
             _stateMachine.ChangeState<IdleState>();
-        }
-
-        private void _entityHealth_OnHealthChangedEventHandler(object sender, OnHealthChangedEventArgs e)
-        {
-            if (e.CurrentHealth <= 0)
-            {
-                gameObject.SetActive(false);
-                //TODO: Go to broken state awaiting for repair
-            }
         }
 
         // Update is called once per frame
@@ -80,13 +71,20 @@ namespace Assets._Project.Scripts.Entities
 
         public void Heal(int damage)
         {
-            _entityHealth.Heal(damage);
+            _currentHealth += damage;
+            OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHealth });
         }
 
         public void Hurt(int damage)
         {
-            _entityHealth.Hurt(damage);
+            _currentHealth -= damage;
+            OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHealth });
 
+            if (_currentHealth <= 0)
+            {
+                gameObject.SetActive(false);
+                //TODO: Go to broken state awaiting for repair
+            }
         }
     }
 }

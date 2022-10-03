@@ -29,7 +29,7 @@ public class DroneController : MonoBehaviour
 
     private void GetInput()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && _activeDrone.IsAvialable)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] targetObjects = Physics2D.OverlapPointAll(mousePosition);

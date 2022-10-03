@@ -12,6 +12,7 @@ public class ShipConditionController : MonoBehaviour, IHealth
     private void Awake()
     {
         _currentHullCapacity = _maxHullCapacity;
+        OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHullCapacity });
     }
 
     public void Heal(int damage)

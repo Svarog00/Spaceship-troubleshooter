@@ -40,14 +40,9 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
             {
                 _troubleToFix.SolveTrouble();
                 _droneModel.Upgrade();
-                NewMethod();
+                _agentContext.Damage();
                 _entityStateMachine.ChangeState<IdleState>();
             }
-        }
-
-        private void NewMethod()
-        {
-            _agentContext.Damage();
         }
 
         public void Exit()

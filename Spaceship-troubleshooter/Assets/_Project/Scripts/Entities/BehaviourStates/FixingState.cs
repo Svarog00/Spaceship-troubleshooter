@@ -9,6 +9,8 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
         private DroneModel _droneModel;
         private Trouble _troubleToFix;
 
+        private float _curFixTime;
+
         public FixingState(GameObject agentContext, EntityStateMachine stateMachine)
         {
             _entityStateMachine = stateMachine;
@@ -20,24 +22,29 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
 
         private void FixingState_OnGetNewTask(object sender, System.EventArgs e)
         {
-            
+            //Ignore new task
         }
 
         public void Enter()
         {
+            _curFixTime = _droneModel.FixingTroubleTime;
             //TODO: Start fixing animation
         }
 
         public void Handle()
         {
-            //TODO: Fixing trouble logic
-
+            _curFixTime -= Time.deltaTime;
+            if(_curFixTime <= 0)
+            {
+                _troubleToFix.SolveTrouble();
+                _droneModel.Upgrade();
+                _entityStateMachine.ChangeState<IdleState>();
+            }
         }
 
         public void Exit()
         {
-            
+            _curFixTime = 0;
         }
-
     }
 }

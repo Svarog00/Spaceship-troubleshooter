@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 6534338906431307491}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4084457fdd967704e8a3325ab0219f5f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -219,8 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _range: 1.5
-  _lineRenderer: {fileID: 6407510348495138396}
   _cooldownTime: 0.5
+  _lineRenderer: {fileID: 6407510348495138396}
 --- !u!120 &6407510348495138396
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ LineRenderer:
   m_GameObject: {fileID: 8974322707311464702}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
@@ -240,7 +240,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f321821b7b19e58449e2ed5a4f4a7a92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -266,7 +266,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -314,7 +314,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1

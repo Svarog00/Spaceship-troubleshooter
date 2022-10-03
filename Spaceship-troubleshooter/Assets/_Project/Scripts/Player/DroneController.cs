@@ -3,21 +3,22 @@ using UnityEngine;
 
 public class DroneController : MonoBehaviour
 {
-    private DroneRoot _activeDrone;
+    private DroneRoot _activeDrone = null;
     private DroneRoot[] _drones = new DroneRoot[4];
 
     public void SetActiveDrone(int number)
     {
-        _activeDrone = _drones[number];
+        if (_drones[number].IsAvialable)
+        {
+            _activeDrone = _drones[number];
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetDroneAvialable(int number)
     {
-        
+        _drones[number].DroneModel.IsAvialable = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetInput();
@@ -33,7 +34,7 @@ public class DroneController : MonoBehaviour
             {
                 if (targetObject.gameObject.GetComponent<Trouble>())
                 {
-                    _activeDrone.SetCurrentObjective(targetObject.gameObject);
+                    _activeDrone?.SetCurrentObjective(targetObject.gameObject);
                 }
             }
         }

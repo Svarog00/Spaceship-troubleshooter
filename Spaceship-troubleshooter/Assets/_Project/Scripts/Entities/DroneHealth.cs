@@ -22,11 +22,13 @@ namespace Assets._Project.Scripts.Entities
         public void Heal(int damage)
         {
             _curHealth += damage;
+            OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _curHealth });
         }
 
         public void Hurt(int damage)
         {
             _curHealth -= damage;
+            OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _curHealth });
         }
     }
 }

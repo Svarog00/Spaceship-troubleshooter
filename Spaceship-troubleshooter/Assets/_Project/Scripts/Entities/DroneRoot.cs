@@ -8,9 +8,11 @@ using UnityEngine;
 
 public class DroneRoot : MonoBehaviour, IHealth
 {
-    public GameObject Trouble => _trouble;
+    public GameObject TroubleObject => _trouble;
     public DroneModel DroneModel => _droneModel;
     public IHealth Health => _entityHealth;
+
+    public bool IsAvialable => _droneModel.IsAvialable;
 
     [SerializeField] private float _startFixingTime;
     [SerializeField] private int _maxHp;

@@ -10,8 +10,8 @@ namespace Assets._Project.Scripts.Player.Weapon
     {
         [SerializeField] private int _damage;
         [SerializeField] private float _range;
-        [SerializeField] private LineRenderer _lineRenderer;
         [SerializeField] private float _cooldownTime;
+        [SerializeField] private LineRenderer _lineRenderer;
 
         private float _curCooldownTime;
 
@@ -24,11 +24,7 @@ namespace Assets._Project.Scripts.Player.Weapon
 
         private void Update()
         {
-            Vector3 endOfLine = GetDirectionToMouse() * _range;
-            endOfLine.z = 0;
-            _lineRenderer.SetPosition(0, transform.position);
-            _lineRenderer.SetPosition(1, endOfLine);
-
+            UpdateRayVisual();
             Cooldown();
         }
 
@@ -41,7 +37,6 @@ namespace Assets._Project.Scripts.Player.Weapon
                 RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, _direction, _range);
                 foreach (var hit in hits)
                 {
-                    Debug.Log(hit.collider.tag);
                     IHealth targetHealth;
                     if (hit.collider.TryGetComponent(out targetHealth))
                     {
@@ -50,6 +45,14 @@ namespace Assets._Project.Scripts.Player.Weapon
                 }
                 _curCooldownTime = _cooldownTime;
             }
+        }
+
+        private void UpdateRayVisual()
+        {
+            Vector3 endOfLine = transform.position + GetDirectionToMouse() * _range;
+            endOfLine.z = 0;
+            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(1, endOfLine);
         }
 
         private void Cooldown()

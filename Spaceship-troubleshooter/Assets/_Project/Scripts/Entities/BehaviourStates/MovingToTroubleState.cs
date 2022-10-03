@@ -25,14 +25,14 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
 
         public void Enter()
         {
-            _targetPosition = _agentContext.GetComponent<DroneRoot>().Trouble.transform.position;
+            _targetPosition = _agentContext.GetComponent<DroneRoot>().TroubleObject.transform.position;
             _movement.SetTargetPosition(_targetPosition);
             _movement.CanMove = true;
         }
 
         public void Handle()
         {
-            if(Vector2.Distance(_agentContext.transform.position, _targetPosition) < 0.15f)
+            if(Vector2.Distance(_agentContext.transform.position, _targetPosition) <= 0.15f)
             {
                 _stateMachine.ChangeState<FixingState>();
             }

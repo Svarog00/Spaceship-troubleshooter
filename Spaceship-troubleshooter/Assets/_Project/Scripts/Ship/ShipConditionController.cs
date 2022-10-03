@@ -1,7 +1,5 @@
 using Assets._Project.Scripts.Entities;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipConditionController : MonoBehaviour, IHealth
@@ -10,6 +8,11 @@ public class ShipConditionController : MonoBehaviour, IHealth
 
     [SerializeField] private int _maxHullCapacity;
     private int _currentHullCapacity;
+
+    private void Awake()
+    {
+        _currentHullCapacity = _maxHullCapacity;
+    }
 
     public void Heal(int damage)
     {

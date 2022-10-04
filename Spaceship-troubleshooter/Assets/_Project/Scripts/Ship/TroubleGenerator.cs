@@ -25,7 +25,7 @@ public class TroubleGenerator : MonoBehaviour
         CountTime();
         if (_currentTime <= 0f)
         {
-            ActivateRandomTrouble();
+            //ActivateRandomTrouble();
         }
     }
 

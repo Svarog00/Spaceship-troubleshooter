@@ -7,7 +7,12 @@ public class DroneController : MonoBehaviour
 {
     [SerializeField] private List<DroneRoot> _drones = new List<DroneRoot>();
     
-    private DroneRoot _activeDrone = null;
+    private DroneRoot _activeDrone;
+
+    public void Start()
+    {
+        _activeDrone = _drones[0];
+    }
 
     public void SetActiveDrone(int number)
     {
@@ -29,7 +34,7 @@ public class DroneController : MonoBehaviour
 
     private void GetInput()
     {
-        if(Input.GetMouseButton(0) && _activeDrone.IsAvialable)
+        if(Input.GetMouseButton(1) && _activeDrone.IsAvialable)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] targetObjects = Physics2D.OverlapPointAll(mousePosition);

@@ -13,11 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _direction;
     private bool _faceRight;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    private static readonly int WalkHashAnimation = Animator.StringToHash("Walk");
+    private static readonly int IdleHashAnimation = Animator.StringToHash("Idle");
 
     private void FixedUpdate()
     {
@@ -27,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public void StopMove()
     {
         _direction = Vector2.zero;
+        AnimateMove();
     }
 
     public void HandleMove(Vector2 vector)
@@ -44,12 +42,18 @@ public class PlayerMovement : MonoBehaviour
         if (_direction != new Vector2(0, 0))
         {
             SetSpriteDirection(_direction);
+            return;
         }
     }
 
     private void AnimateMove()
     {
-        _animator.SetFloat("Speed", _direction.sqrMagnitude);
+        _animator.CrossFade(GetMovementState(), 0f);
+    }
+
+    private int GetMovementState()
+    {
+        return _direction != Vector2.zero ? WalkHashAnimation : IdleHashAnimation;
     }
 
     public void SetSpriteDirection(Vector2 direction)

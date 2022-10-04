@@ -47,7 +47,7 @@ public class EntityMovement : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetFloat(SpeedAnimatorTag, _currentSpeed);
+        
     }
 
     // Update is called once per frame

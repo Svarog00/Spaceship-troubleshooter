@@ -13,12 +13,14 @@ namespace Assets._Project.Scripts.Player.Weapon
         [SerializeField] private float _cooldownTime;
         [SerializeField] private LineRenderer _lineRenderer;
 
+        private Animator _animator;
         private float _curCooldownTime;
 
         private Vector3 _direction;
 
         private void Start()
         {
+            _animator = GetComponent<Animator>();
             _lineRenderer.enabled = false;
         }
 
@@ -53,6 +55,8 @@ namespace Assets._Project.Scripts.Player.Weapon
             endOfLine.z = 0;
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, endOfLine);
+
+
         }
 
         private void Cooldown()

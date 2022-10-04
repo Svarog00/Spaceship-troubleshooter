@@ -30,6 +30,8 @@ public class PlayerControl : MonoBehaviour
 
     private void Awake()
     {
+
+
         _inputService = ServiceLocator.Container.Single<IInputService>();
         _hotkeysSystem = new HotkeysSystem(gameObject);
     }

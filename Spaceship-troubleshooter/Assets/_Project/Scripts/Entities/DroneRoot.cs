@@ -55,7 +55,7 @@ namespace Assets._Project.Scripts.Entities
         // Start is called before the first frame update
         void Start()
         {
-            _stateMachine.ChangeState<IdleState>();
+            _stateMachine.Enter<IdleState>();
         }
 
         // Update is called once per frame

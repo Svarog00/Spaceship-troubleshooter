@@ -8,16 +8,21 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
         private EntityStateMachine _entityStateMachine;
         private DroneModel _droneModel;
         private Trouble _troubleToFix;
+        private Animator _animator;
         private DroneRoot _agentContext;
 
         private float _curFixTime;
 
+        private static readonly int FixingAimationHash = Animator.StringToHash("Fixing");
+
         public FixingState(GameObject agentContext, EntityStateMachine stateMachine)
         {
             _entityStateMachine = stateMachine;
-            _agentContext = agentContext.GetComponent<DroneRoot>();
-            _droneModel = _agentContext.DroneModel;
+            _droneModel = agentContext.GetComponent<DroneRoot>().DroneModel;
+
             _troubleToFix = agentContext.GetComponent<Trouble>();
+            _agentContext = agentContext.GetComponent<DroneRoot>();
+            _animator = agentContext.GetComponent<Animator>();
 
             _agentContext.OnGetNewTask += FixingState_OnGetNewTask; ;
         }
@@ -30,7 +35,7 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
         public void Enter()
         {
             _curFixTime = _droneModel.FixingTroubleTime;
-            //TODO: Start fixing animation
+            _animator.CrossFade(FixingAimationHash, 0f);
         }
 
         public void Handle()
@@ -41,7 +46,7 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
                 _troubleToFix.SolveTrouble();
                 _droneModel.Upgrade();
                 _agentContext.Damage();
-                _entityStateMachine.ChangeState<IdleState>();
+                _entityStateMachine.Enter<IdleState>();
             }
         }
 

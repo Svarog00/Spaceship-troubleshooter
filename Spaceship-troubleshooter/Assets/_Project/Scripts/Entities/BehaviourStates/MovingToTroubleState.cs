@@ -8,12 +8,16 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
         private EntityMovement _movement;
         private GameObject _agentContext;
         private Vector3 _targetPosition;
+        private Animator _animator;
+
+        private static readonly int WalkAnimationHash = Animator.StringToHash("Walk");
 
         public MovingToTroubleState(GameObject agentContext, EntityStateMachine stateMachine)
         {
             _agentContext = agentContext;
             _stateMachine = stateMachine;
 
+            _animator = _agentContext.GetComponent<Animator>();
             _movement = _agentContext.GetComponent<EntityMovement>();
             _agentContext.GetComponent<DroneRoot>().OnGetNewTask += MovingToTroubleState_OnGetNewTask;
         }
@@ -28,13 +32,14 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
             _targetPosition = _agentContext.GetComponent<DroneRoot>().TroubleObject.transform.position;
             _movement.SetTargetPosition(_targetPosition);
             _movement.CanMove = true;
+            _animator.CrossFade(WalkAnimationHash, 0f);
         }
 
         public void Handle()
         {
             if(Vector2.Distance(_agentContext.transform.position, _targetPosition) <= 0.15f)
             {
-                _stateMachine.ChangeState<FixingState>();
+                _stateMachine.Enter<FixingState>();
             }
         }
 

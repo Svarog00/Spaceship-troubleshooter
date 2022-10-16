@@ -11,14 +11,14 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
         private EntityStateMachine _stateMachine;
         private Animator _animator;
 
-        private static readonly int IdleAnimationHash = Animator.StringToHash("Idle");
+        private readonly int IdleAnimationHash = Animator.StringToHash("Idle");
 
         public IdleState(GameObject agentContext, EntityStateMachine stateMachine)
         {
             _agentContext = agentContext;
             _stateMachine = stateMachine;
 
-            _animator = _agentContext.GetComponent<Animator>();
+            _animator = _agentContext.GetComponentInChildren<Animator>();
             _droneRoot = _agentContext.GetComponent<DroneRoot>();
             _droneRoot.OnGetNewTask += IdleState_OnGetNewTask;
         }

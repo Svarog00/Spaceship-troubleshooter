@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _droneController: {fileID: 0}
-  _troublesRequired: 5
+  _troublesRequired: 1
   _troublesRequiredStepRise: 3

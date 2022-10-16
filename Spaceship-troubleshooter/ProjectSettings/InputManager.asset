@@ -537,7 +537,7 @@ InputManager:
     m_Name: Fourth
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 4
+    negativeButton: 
     positiveButton: 4
     altNegativeButton: 
     altPositiveButton: 

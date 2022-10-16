@@ -14,12 +14,13 @@ public class HotkeysSystem
     private const string FirstModuleButtonName = "First";
     private const string SecondModuleButtonName = "Second";
     private const string ThirdModuleButtonName = "Third";
-    private const string FourthModuleButtonName = "Third";
+    private const string FourthModuleButtonName = "Fourth";
 
     private IInputService _inputService;
     private GameObject _player;
-    private List<HotkeyAbility> _hotkeyAbilities;
     private DroneController _droneController;
+
+    private List<HotkeyAbility> _hotkeyAbilities;
 
     public HotkeysSystem(GameObject player)
     {

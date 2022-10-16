@@ -5,24 +5,24 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
 {
     public class FixingState : IBehaviourState
     {
-        private EntityStateMachine _entityStateMachine;
-        private DroneModel _droneModel;
-        private Trouble _troubleToFix;
-        private Animator _animator;
         private DroneRoot _agentContext;
+        private DroneModel _droneModel;
+        private EntityStateMachine _entityStateMachine;
+        private Trouble _troubleToFix;
+
+        private Animator _animator;
 
         private float _curFixTime;
 
-        private static readonly int FixingAimationHash = Animator.StringToHash("Fixing");
+        private readonly int FixingAimationHash = Animator.StringToHash("Fixing");
 
         public FixingState(GameObject agentContext, EntityStateMachine stateMachine)
         {
             _entityStateMachine = stateMachine;
             _droneModel = agentContext.GetComponent<DroneRoot>().DroneModel;
 
-            _troubleToFix = agentContext.GetComponent<Trouble>();
             _agentContext = agentContext.GetComponent<DroneRoot>();
-            _animator = agentContext.GetComponent<Animator>();
+            _animator = agentContext.GetComponentInChildren<Animator>();
 
             _agentContext.OnGetNewTask += FixingState_OnGetNewTask; ;
         }
@@ -34,6 +34,7 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
 
         public void Enter()
         {
+            _troubleToFix = _agentContext.TroubleObject.GetComponent<Trouble>();
             _curFixTime = _droneModel.FixingTroubleTime;
             _animator.CrossFade(FixingAimationHash, 0f);
         }
@@ -43,9 +44,8 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
             _curFixTime -= Time.deltaTime;
             if(_curFixTime <= 0)
             {
-                _troubleToFix.SolveTrouble();
+                _troubleToFix.SolveTrouble(_agentContext);
                 _droneModel.Upgrade();
-                _agentContext.Damage();
                 _entityStateMachine.Enter<IdleState>();
             }
         }

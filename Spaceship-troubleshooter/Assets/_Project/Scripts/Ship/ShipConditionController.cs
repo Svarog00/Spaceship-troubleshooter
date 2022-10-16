@@ -25,6 +25,8 @@ public class ShipConditionController : MonoBehaviour, IHealth
     {
         _currentHullCapacity -= damage;
         OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHullCapacity });
+
+
     }
 }
 

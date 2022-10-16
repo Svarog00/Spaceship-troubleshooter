@@ -13,17 +13,12 @@ namespace Assets._Project.Scripts.UI
         void Start()
         {
             _healthBarSlider.value = _healthBarSlider.maxValue;
-            _healthSource.GetComponent<IHealth>().OnHealthChangedEventHandler += _healthSource_OnHealthChangedEventHandler;
+            _healthSource.GetComponent<IHealth>().OnHealthChangedEventHandler += HealthSource_OnHealthChangedEventHandler;
         }
 
-        private void _healthSource_OnHealthChangedEventHandler(object sender, OnHealthChangedEventArgs e)
+        private void HealthSource_OnHealthChangedEventHandler(object sender, OnHealthChangedEventArgs e)
         {
             _healthBarSlider.value = e.CurrentHealth;
-        }
-
-        private void OnDestroy()
-        {
-            _healthSource.GetComponent<IHealth>().OnHealthChangedEventHandler -= _healthSource_OnHealthChangedEventHandler;
         }
     }
 }

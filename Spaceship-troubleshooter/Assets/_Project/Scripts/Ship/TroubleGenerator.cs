@@ -2,6 +2,7 @@ using Assets._Project.Scripts.Ship;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,7 +26,7 @@ public class TroubleGenerator : MonoBehaviour
         CountTime();
         if (_currentTime <= 0f)
         {
-            //ActivateRandomTrouble();
+            ActivateRandomTrouble();
         }
     }
 
@@ -36,8 +37,12 @@ public class TroubleGenerator : MonoBehaviour
 
     private void ActivateRandomTrouble()
     {
-        int random = Random.Range(0, _troubles.Count);
-        _troubles[random].ActivateTrouble();
+        var inactiveTroubles = _troubles.Where(trouble => trouble.IsActive == false).ToList();
+        if(inactiveTroubles.Count > 0)
+        {
+            int random = Random.Range(0, inactiveTroubles.Count);
+            inactiveTroubles[random].ActivateTrouble();
+        }
 
         _currentTime = _timeBetweenTroubles;
 

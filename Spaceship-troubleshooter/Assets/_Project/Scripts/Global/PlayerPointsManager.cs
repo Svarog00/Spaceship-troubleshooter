@@ -1,10 +1,13 @@
 using Assets._Project.Scripts.Entities;
+using System;
 using UnityEngine;
 
 namespace Assets._Project.Scripts.Global
 {
     public class PlayerPointsManager : MonoBehaviour
     {
+        public event EventHandler OnPointsAdded;
+
         [SerializeField] private DroneController _droneController;
 
         [SerializeField] private int _troublesRequired;
@@ -17,6 +20,8 @@ namespace Assets._Project.Scripts.Global
         {
             _problemSolvedCount++;
             ActivateNewDrone();
+
+            OnPointsAdded?.Invoke(this, EventArgs.Empty);
         }
 
         private void ActivateNewDrone()

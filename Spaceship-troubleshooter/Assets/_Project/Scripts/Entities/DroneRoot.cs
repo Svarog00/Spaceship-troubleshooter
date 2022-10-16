@@ -46,7 +46,8 @@ namespace Assets._Project.Scripts.Entities
             {
                 [typeof(MovingToTroubleState)] = new MovingToTroubleState(gameObject, _stateMachine),
                 [typeof(FixingState)] = new FixingState(gameObject, _stateMachine),
-                [typeof(IdleState)] = new IdleState(gameObject, _stateMachine)
+                [typeof(IdleState)] = new IdleState(gameObject, _stateMachine),
+                [typeof(BrokenState)] = new BrokenState(gameObject, _stateMachine),
             };
 
             OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHealth });
@@ -71,6 +72,7 @@ namespace Assets._Project.Scripts.Entities
 
         public void Heal(int damage)
         {
+            Debug.Log("Healing");
             _currentHealth += damage;
             OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHealth });
         }
@@ -82,7 +84,7 @@ namespace Assets._Project.Scripts.Entities
 
             if (_currentHealth <= 0)
             {
-                gameObject.SetActive(false);
+                _stateMachine.Enter<BrokenState>();
                 //TODO: Go to broken state awaiting for repair
             }
         }

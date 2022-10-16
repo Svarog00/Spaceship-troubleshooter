@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EntityMovement : MonoBehaviour
 {
-    private const string SpeedAnimatorTag = "Speed";
-
-    [SerializeField] private Animator _animator;
     [SerializeField] private float _currentSpeed;
     [SerializeField] private float _maxSpeed;
 
@@ -63,11 +60,11 @@ public class EntityMovement : MonoBehaviour
             if (_pathVectorList != null)
             {
                 Vector3 targetPosition = _pathVectorList[_currentPathIndex];
-                if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+                if (Vector3.Distance(transform.position, targetPosition) > 0.15f)
                 {
                     _direction = (targetPosition - transform.position).normalized;
-                    SetSpriteDirection(-_direction);
-                    _rb2.MovePosition(_rb2.position - _direction * _maxSpeed * Time.deltaTime); //movement
+                    SetSpriteDirection(_direction);
+                    _rb2.MovePosition(_rb2.position + _direction * _maxSpeed * Time.deltaTime); //movement
                 }
                 else
                 {

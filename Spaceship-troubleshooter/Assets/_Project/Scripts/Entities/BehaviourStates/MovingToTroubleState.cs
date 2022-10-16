@@ -10,14 +10,14 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
         private Vector3 _targetPosition;
         private Animator _animator;
 
-        private static readonly int WalkAnimationHash = Animator.StringToHash("Walk");
+        private readonly int WalkAnimationHash = Animator.StringToHash("Walk");
 
         public MovingToTroubleState(GameObject agentContext, EntityStateMachine stateMachine)
         {
             _agentContext = agentContext;
             _stateMachine = stateMachine;
 
-            _animator = _agentContext.GetComponent<Animator>();
+            _animator = _agentContext.GetComponentInChildren<Animator>();
             _movement = _agentContext.GetComponent<EntityMovement>();
             _agentContext.GetComponent<DroneRoot>().OnGetNewTask += MovingToTroubleState_OnGetNewTask;
         }

@@ -18,6 +18,7 @@ public class DroneController : MonoBehaviour
     {
         if (_drones[number].IsAvialable)
         {
+            Debug.Log(_activeDrone);
             _activeDrone = _drones[number];
         }
     }
@@ -40,9 +41,10 @@ public class DroneController : MonoBehaviour
             Collider2D[] targetObjects = Physics2D.OverlapPointAll(mousePosition);
             foreach (Collider2D targetObject in targetObjects)
             {
-                if (targetObject.gameObject.GetComponent<Trouble>())
+                if (targetObject.gameObject.GetComponent<Trouble>() && targetObject.gameObject.GetComponent<Trouble>().IsActive)
                 {
                     _activeDrone?.SetCurrentObjective(targetObject.gameObject);
+                    break;
                 }
             }
         }

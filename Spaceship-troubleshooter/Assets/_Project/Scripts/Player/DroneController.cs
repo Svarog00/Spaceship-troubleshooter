@@ -11,15 +11,16 @@ public class DroneController : MonoBehaviour
 
     public void Start()
     {
-        _activeDrone = _drones[0];
+        SetActiveDrone(0);
     }
 
     public void SetActiveDrone(int number)
     {
         if (_drones[number].IsAvialable)
         {
-            Debug.Log(_activeDrone);
+            _activeDrone?.TogglePointer(false);
             _activeDrone = _drones[number];
+            _activeDrone.TogglePointer(true);
         }
     }
 

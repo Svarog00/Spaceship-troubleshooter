@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     private int GetMovementState()
     {
-        return _direction != Vector2.zero ? WalkHashAnimation : IdleHashAnimation;
+        return _direction == Vector2.zero ? IdleHashAnimation : WalkHashAnimation;
     }
 
     public void SetSpriteDirection(Vector2 direction)

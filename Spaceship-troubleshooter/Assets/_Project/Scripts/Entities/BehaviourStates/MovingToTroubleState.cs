@@ -19,7 +19,14 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
 
             _animator = _agentContext.GetComponentInChildren<Animator>();
             _movement = _agentContext.GetComponent<EntityMovement>();
+
+            _movement.OnTargetPositionReachedEventHandler += Movement_OnTargetPositionReachedEventHandler;
             _agentContext.GetComponent<DroneRoot>().OnGetNewTask += MovingToTroubleState_OnGetNewTask;
+        }
+
+        private void Movement_OnTargetPositionReachedEventHandler(object sender, System.EventArgs e)
+        {
+            _stateMachine.Enter<FixingState>();
         }
 
         private void MovingToTroubleState_OnGetNewTask(object sender, System.EventArgs e)
@@ -37,9 +44,9 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
 
         public void Handle()
         {
-            if(Vector2.Distance(_agentContext.transform.position, _targetPosition) <= 0.15f)
+            if(Vector2.Distance(_agentContext.transform.position, _targetPosition) <= 0.2f)
             {
-                _stateMachine.Enter<FixingState>();
+                
             }
         }
 

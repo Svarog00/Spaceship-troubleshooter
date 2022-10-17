@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EntityMovement : MonoBehaviour
 {
+    public event EventHandler OnTargetPositionReachedEventHandler;
+
     [SerializeField] private float _currentSpeed;
     [SerializeField] private float _maxSpeed;
 
@@ -60,20 +63,20 @@ public class EntityMovement : MonoBehaviour
             if (_pathVectorList != null)
             {
                 Vector3 targetPosition = _pathVectorList[_currentPathIndex];
-                if (Vector3.Distance(transform.position, targetPosition) > 0.15f)
-                {
-                    _direction = (targetPosition - transform.position).normalized;
-                    SetSpriteDirection(_direction);
-                    _rb2.MovePosition(_rb2.position + _direction * _maxSpeed * Time.deltaTime); //movement
-                }
-                else
+                if (Vector3.Distance(transform.position, targetPosition) <=  0.15f)
                 {
                     _currentPathIndex++;
                     if (_currentPathIndex >= _pathVectorList.Count)
                     {
                         _canMove = false;
+                        OnTargetPositionReachedEventHandler?.Invoke(this, EventArgs.Empty); //event to tranfere to another state
+                        return;
                     }
                 }
+
+                _direction = (targetPosition - transform.position).normalized;
+                SetSpriteDirection(_direction);
+                _rb2.MovePosition(_rb2.position + _direction * _maxSpeed * Time.deltaTime); //movement
             }
         }
 

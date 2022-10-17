@@ -26,7 +26,7 @@ public class HotkeysSystem
     {
         _inputService = ServiceLocator.Container.Single<IInputService>();
         _player = player;
-        _droneController = _player.GetComponent<DroneController>();
+        _droneController = UnityEngine.Object.FindObjectOfType<DroneController>();
 
         _hotkeyAbilities = new List<HotkeyAbility>();
 
@@ -57,15 +57,15 @@ public class HotkeysSystem
         {
             _hotkeyAbilities[0].OnHotkeyButtonClick();
         }
-        else if (Input.GetButtonDown(SecondModuleButtonName))
+        if (Input.GetButtonDown(SecondModuleButtonName))
         {
             _hotkeyAbilities[1].OnHotkeyButtonClick();
         }
-        else if (Input.GetButtonDown(ThirdModuleButtonName))
+        if (Input.GetButtonDown(ThirdModuleButtonName))
         {
             _hotkeyAbilities[2].OnHotkeyButtonClick();
         }
-        else if (Input.GetButtonDown(FourthModuleButtonName))
+        if (Input.GetButtonDown(FourthModuleButtonName))
         {
             _hotkeyAbilities[3].OnHotkeyButtonClick();
         }

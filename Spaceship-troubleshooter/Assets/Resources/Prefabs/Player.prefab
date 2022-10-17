@@ -262,6 +262,7 @@ MonoBehaviour:
   _range: 0.32
   _cooldownTime: 0.5
   _lineRenderer: {fileID: 6407510348495138396}
+  _animator: {fileID: 6534338906431307490}
 --- !u!120 &6407510348495138396
 LineRenderer:
   m_ObjectHideFlags: 0

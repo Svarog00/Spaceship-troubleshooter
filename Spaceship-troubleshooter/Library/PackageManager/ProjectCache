@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638002095745053937
-    m_Hash: 641931285
+      ticks: 638015544430937511
+    m_Hash: 1115205457
   m_LockFileStatus:
     m_FilePath: E:/GitHub/Spaceship-troubleshooter/Spaceship-troubleshooter/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638002095745423939
-    m_Hash: 1317564534
+      ticks: 638015544431497512
+    m_Hash: 3328151992
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -36,51 +36,6 @@ m_PackageAssets:
       category: 
       type: 
       description: 
-      status: 4
-      errors: []
-      versions:
-        all: []
-        compatible: []
-        verified: 
-      dependencies: []
-      resolvedDependencies: []
-      keywords: []
-      registry:
-        id: 
-        name: 
-        url: 
-        scopes: []
-        isDefault: 0
-        capabilities: 0
-      hasRegistry: 0
-      hideInEditor: 1
-      entitlements:
-        isAllowed: 1
-      isAssetStorePackage: 0
-      datePublishedTicks: 0
-      documentationUrl: 
-      hasRepository: 0
-      repository:
-        type: 
-        url: 
-        revision: 
-        path: 
-    - packageId: anton.menutools@file:E:\GitHub\Unity Packages\Tools
-      testable: 0
-      isDirectDependency: 1
-      version: 0.0.1-preview
-      source: 4
-      resolvedPath: E:\GitHub\Unity Packages\Tools
-      assetPath: Packages/anton.menutools
-      name: anton.menutools
-      displayName: Anton's menu tools
-      author:
-        name: 
-        email: 
-        url: 
-      category: 
-      type: 
-      description: Create default folders
       status: 4
       errors: []
       versions:
@@ -272,6 +227,7 @@ m_PackageAssets:
         - 8.0.1
         - 8.0.2
         - 8.0.3
+        - 8.0.4
         - 9.0.0-pre.1
         - 9.0.0-pre.3
         - 9.0.0
@@ -497,6 +453,7 @@ m_PackageAssets:
         - 7.0.0
         - 7.0.1
         - 7.0.2
+        - 7.0.3
         - 8.0.0-pre.1
         - 8.0.0-pre.3
         - 8.0.0
@@ -1062,6 +1019,7 @@ m_PackageAssets:
         - 1.17.0
         - 1.17.1
         - 1.17.2
+        - 1.17.6
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -1187,6 +1145,7 @@ m_PackageAssets:
         - 3.0.13
         - 3.0.14
         - 3.0.15
+        - 3.0.16
         compatible:
         - 1.0.2
         - 1.0.6
@@ -1219,6 +1178,7 @@ m_PackageAssets:
         - 3.0.13
         - 3.0.14
         - 3.0.15
+        - 3.0.16
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -3874,6 +3834,7 @@ m_PackageAssets:
         - 7.0.0-pre.4
         - 7.0.0
         - 7.0.1
+        - 7.0.2
         - 8.0.0-pre.1
         - 8.0.0-pre.2
         - 8.0.0
@@ -4003,20 +3964,6 @@ m_PackageAssets:
         ticks: 638002096861240455
       m_Hash: 2589003073
     - m_FilePath: E:\GitHub\Unity Packages\GameInfrastructure
-      m_PathExists: 1
-      m_ContentTrackingEnabled: 1
-      m_ModificationDate:
-        serializedVersion: 2
-        ticks: 0
-      m_Hash: 0
-    - m_FilePath: E:\GitHub\Unity Packages\Tools/package.json
-      m_PathExists: 1
-      m_ContentTrackingEnabled: 1
-      m_ModificationDate:
-        serializedVersion: 2
-        ticks: 637980976870017174
-      m_Hash: 1070373246
-    - m_FilePath: E:\GitHub\Unity Packages\Tools
       m_PathExists: 1
       m_ContentTrackingEnabled: 1
       m_ModificationDate:

@@ -16,6 +16,8 @@ namespace Assets._Project.Scripts.Entities
 
         public bool IsAvialable => _droneModel.IsAvialable;
 
+        [SerializeField] private GameObject _pointer;
+
         [SerializeField] private DroneType _type;
 
         [SerializeField] private float _startFixingTime;
@@ -63,6 +65,11 @@ namespace Assets._Project.Scripts.Entities
         void Update()
         {
             _stateMachine.Work();
+        }
+
+        public void TogglePointer(bool active)
+        {
+            _pointer.SetActive(active);
         }
 
         public void Damage()

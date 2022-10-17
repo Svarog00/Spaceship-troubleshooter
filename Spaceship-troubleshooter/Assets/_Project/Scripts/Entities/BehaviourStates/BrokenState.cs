@@ -21,7 +21,7 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
             _stateMachine = stateMachine;
 
             _agentContext.GetComponent<DroneRoot>().OnGetNewTask += BrokenState_OnGetNewTask;
-            _animator = _agentContext.GetComponent<Animator>();
+            _animator = _agentContext.GetComponentInChildren<Animator>();
         }
 
         private void BrokenState_OnGetNewTask(object sender, EventArgs e)

@@ -8,19 +8,21 @@ namespace Assets._Project.Scripts.Player.Weapon
 {
     public class WieldingTool : MonoBehaviour, IWeapon
     {
+        private readonly int FixingAnimationHash = Animator.StringToHash("Fixing");
+        private readonly int IdleAnimationHash = Animator.StringToHash("Idle");
+
         [SerializeField] private int _damage;
         [SerializeField] private float _range;
         [SerializeField] private float _cooldownTime;
         [SerializeField] private LineRenderer _lineRenderer;
+        [SerializeField] private Animator _animator;
 
-        private Animator _animator;
         private float _curCooldownTime;
 
         private Vector3 _direction;
 
         private void Start()
         {
-            _animator = GetComponent<Animator>();
             _lineRenderer.enabled = false;
         }
 
@@ -33,7 +35,7 @@ namespace Assets._Project.Scripts.Player.Weapon
         public void Shoot()
         {
             _lineRenderer.enabled = true;
-            if(CanShoot())
+            if (CanShoot())
             {
                 _direction = GetDirectionToMouse();
                 RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, _direction, _range);
@@ -43,6 +45,7 @@ namespace Assets._Project.Scripts.Player.Weapon
                     if (hit.collider.TryGetComponent(out targetHealth))
                     {
                         targetHealth.Heal(_damage);
+                        break;
                     }
                 }
                 _curCooldownTime = _cooldownTime;

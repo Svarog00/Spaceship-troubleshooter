@@ -6,12 +6,6 @@
       "source": "local",
       "dependencies": {}
     },
-    "anton.menutools": {
-      "version": "file:E:/GitHub/Unity Packages/Tools",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "anton.pathfinding": {
       "version": "file:E:/GitHub/Unity Packages/Pathfinding",
       "depth": 0,

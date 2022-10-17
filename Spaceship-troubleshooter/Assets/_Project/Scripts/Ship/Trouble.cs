@@ -51,6 +51,8 @@ namespace Assets._Project.Scripts.Ship
             _shipCondition.Heal(_accumulatedDamage);
             _damagedAppearence.SetActive(_isActive);
             _playerPointsManager.CountSolvedProblem();
+
+            _accumulatedDamage = 0;
         }
 
         public void ActivateTrouble()

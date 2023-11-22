@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraFollow : MonoBehaviour, ICameraFollow
+public class CameraFollow : MonoBehaviour
 {
+    [SerializeField] private GameObject hero;
+
+    private void Start()
+    {
+        GetComponentInChildren<CinemachineVirtualCamera>().Follow = hero.transform;
+    }
+
     public void Follow(GameObject hero)
     {
         GetComponentInChildren<CinemachineVirtualCamera>().Follow = hero.transform;

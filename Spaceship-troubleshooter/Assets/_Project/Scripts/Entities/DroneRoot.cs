@@ -16,14 +16,16 @@ namespace Assets._Project.Scripts.Entities
 
         public bool IsAvialable => _droneModel.IsAvialable;
 
+        public float Health => _maxHp;
+
         [SerializeField] private GameObject _pointer;
 
         [SerializeField] private DroneType _type;
 
         [SerializeField] private float _startFixingTime;
 
-        [SerializeField] private int _maxHp;
-        private int _currentHealth;
+        [SerializeField] private float _maxHp;
+        private float _currentHealth;
 
         private DroneModel _droneModel;
         private GameObject _trouble;
@@ -77,14 +79,16 @@ namespace Assets._Project.Scripts.Entities
             
         }
 
-        public void Heal(int damage)
+        public void Heal(float damage)
         {
-            Debug.Log("Healing");
-            _currentHealth += damage;
+            if(_currentHealth < _maxHp)
+            {
+                _currentHealth += damage;
+            }
             OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHealth });
         }
 
-        public void Hurt(int damage)
+        public void Hurt(float damage)
         {
             _currentHealth -= damage;
             OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHealth });

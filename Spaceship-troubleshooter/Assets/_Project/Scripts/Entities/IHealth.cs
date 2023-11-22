@@ -9,14 +9,16 @@ namespace Assets._Project.Scripts.Entities
 {
     public class OnHealthChangedEventArgs
     {
-        public int CurrentHealth;
+        public float CurrentHealth;
     }
 
     public interface IHealth
     {
         event EventHandler<OnHealthChangedEventArgs> OnHealthChangedEventHandler;
 
-        void Heal(int damage);
-        void Hurt(int damage);
+        float Health { get; }
+
+        void Heal(float damage);
+        void Hurt(float damage);
     }
 }

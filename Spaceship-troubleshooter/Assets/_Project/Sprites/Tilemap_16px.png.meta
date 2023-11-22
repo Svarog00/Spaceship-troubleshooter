@@ -681,7 +681,7 @@ TextureImporter:
       213: 6219605052937361876
     second: Tilemap_16px_225
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -698,10 +698,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -740,6 +742,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -751,6 +755,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -763,6 +768,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -4831,9 +4863,202 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Tilemap_16px_0: 6884472613928857621
+      Tilemap_16px_1: 612953517449784230
+      Tilemap_16px_10: 7038620511436705430
+      Tilemap_16px_100: -6939335750993634451
+      Tilemap_16px_101: 6423196180010983483
+      Tilemap_16px_102: -1375916914842456773
+      Tilemap_16px_103: -4745968403751791206
+      Tilemap_16px_104: 5241641012553114666
+      Tilemap_16px_105: -2616247231966007710
+      Tilemap_16px_106: -1553646846462863714
+      Tilemap_16px_107: -9050828693886318640
+      Tilemap_16px_108: -6770511802941733281
+      Tilemap_16px_109: 2705253689533543890
+      Tilemap_16px_11: 204301709126461336
+      Tilemap_16px_110: 6236479306492096832
+      Tilemap_16px_111: -1252955463550079622
+      Tilemap_16px_112: -1701502020361481476
+      Tilemap_16px_113: -3180547201302177422
+      Tilemap_16px_114: -6690509778521795344
+      Tilemap_16px_115: 8218379977333394125
+      Tilemap_16px_116: -2688100057186137412
+      Tilemap_16px_117: 2255173973337820198
+      Tilemap_16px_118: -5202352217339201299
+      Tilemap_16px_119: -6485390281243680030
+      Tilemap_16px_12: 8958844702249684958
+      Tilemap_16px_120: 6913575678591337060
+      Tilemap_16px_121: -7173814320125801410
+      Tilemap_16px_122: 6546947128047656653
+      Tilemap_16px_123: -7624299802062469495
+      Tilemap_16px_124: -3242281794610940006
+      Tilemap_16px_125: -7229404245784590655
+      Tilemap_16px_126: 9166390644029164614
+      Tilemap_16px_127: -1988985770055724983
+      Tilemap_16px_128: 28574738641731512
+      Tilemap_16px_129: 6708618768786542501
+      Tilemap_16px_13: 5756833086689352709
+      Tilemap_16px_130: 4533900707209527660
+      Tilemap_16px_131: 7818671755204046437
+      Tilemap_16px_132: -1972030542141971332
+      Tilemap_16px_133: 2340250397675446226
+      Tilemap_16px_134: 3856451588310401460
+      Tilemap_16px_135: 586463158040779150
+      Tilemap_16px_136: 4145881127311485355
+      Tilemap_16px_137: 5406717980894771351
+      Tilemap_16px_138: -1293879671225083702
+      Tilemap_16px_139: 6328476664488374268
+      Tilemap_16px_14: 6695175544909487815
+      Tilemap_16px_140: 3429142560782191392
+      Tilemap_16px_141: -4848259548117932395
+      Tilemap_16px_142: 7895654348831769417
+      Tilemap_16px_143: 4051602878649037830
+      Tilemap_16px_144: 3005467893571943892
+      Tilemap_16px_145: -4978861049958933059
+      Tilemap_16px_146: -5827961292232411774
+      Tilemap_16px_147: -5461411510834965499
+      Tilemap_16px_148: -5632541897511614140
+      Tilemap_16px_149: -1902753927310754326
+      Tilemap_16px_15: 8467606193125726017
+      Tilemap_16px_150: 7281791945716952244
+      Tilemap_16px_151: -2523535963630384045
+      Tilemap_16px_152: -2002419708304245761
+      Tilemap_16px_153: 1667160017850629234
+      Tilemap_16px_154: 9205584312240142611
+      Tilemap_16px_155: 1385759030616559365
+      Tilemap_16px_158: 2580744434089105440
+      Tilemap_16px_159: -8250751061854490458
+      Tilemap_16px_16: 926835386022057724
+      Tilemap_16px_160: 1610386083347417666
+      Tilemap_16px_161: -5056341761577283239
+      Tilemap_16px_162: 2664261603693791624
+      Tilemap_16px_167: -6934081348546431369
+      Tilemap_16px_168: 4935113087458178563
+      Tilemap_16px_169: -8431690879017501392
+      Tilemap_16px_17: -3258223638313146130
+      Tilemap_16px_170: 1629950186864251340
+      Tilemap_16px_171: 7235214466277959633
+      Tilemap_16px_172: -7787157523954652825
+      Tilemap_16px_175: -4877739085858866669
+      Tilemap_16px_176: -3904999345547438906
+      Tilemap_16px_177: -473885464772031218
+      Tilemap_16px_178: -2202710998360243710
+      Tilemap_16px_179: -8433241169399016145
+      Tilemap_16px_18: -5353033939579410110
+      Tilemap_16px_180: 3394450248950505801
+      Tilemap_16px_181: -4105403863095525292
+      Tilemap_16px_182: 5708800511600614081
+      Tilemap_16px_183: -5089531269399284592
+      Tilemap_16px_184: -9066761941415176920
+      Tilemap_16px_185: -3746647117804074206
+      Tilemap_16px_19: 5270491137235864937
+      Tilemap_16px_190: 6693771084948535775
+      Tilemap_16px_191: -6997845187518695345
+      Tilemap_16px_192: -2250698865298545863
+      Tilemap_16px_193: 8224164895801572398
+      Tilemap_16px_194: 5156157817212590324
+      Tilemap_16px_195: 8718954372561103197
+      Tilemap_16px_198: 9024209275810729652
+      Tilemap_16px_199: -3393626740764454975
+      Tilemap_16px_2: -7507747016239150503
+      Tilemap_16px_20: -4221053873892627638
+      Tilemap_16px_200: -6521534953820762224
+      Tilemap_16px_206: 8335824300933024884
+      Tilemap_16px_208: 4077360582573591674
+      Tilemap_16px_209: -5388505188942255675
+      Tilemap_16px_21: 7126792728891510372
+      Tilemap_16px_210: 47661199192181342
+      Tilemap_16px_211: 2458000416309254386
+      Tilemap_16px_212: -5491854481118668351
+      Tilemap_16px_218: -1242162711941935279
+      Tilemap_16px_219: 5389726375601445338
+      Tilemap_16px_22: -2463680061985584642
+      Tilemap_16px_220: 5641728266547218884
+      Tilemap_16px_222: 7363340373633521460
+      Tilemap_16px_226: 7511074177309149576
+      Tilemap_16px_23: -6156523077413048090
+      Tilemap_16px_24: -8932900705933920648
+      Tilemap_16px_25: -6411697400850194392
+      Tilemap_16px_26: 1731239111737824313
+      Tilemap_16px_27: 393223953443921075
+      Tilemap_16px_28: 2203647228785627914
+      Tilemap_16px_29: 3084959346109894046
+      Tilemap_16px_3: 7098192865961157856
+      Tilemap_16px_30: 5978545383461423632
+      Tilemap_16px_31: 6773383804754971398
+      Tilemap_16px_32: -7933494168250943417
+      Tilemap_16px_33: -341639322128879754
+      Tilemap_16px_34: 189769564160498490
+      Tilemap_16px_35: -2672893291048565288
+      Tilemap_16px_36: 3413921635904120511
+      Tilemap_16px_37: 4138430283804268868
+      Tilemap_16px_38: 8701280890288677870
+      Tilemap_16px_39: -5828390049349074548
+      Tilemap_16px_4: 6495502463533187956
+      Tilemap_16px_40: -6509479954750865122
+      Tilemap_16px_41: -693375216824426710
+      Tilemap_16px_42: -3405072016869645005
+      Tilemap_16px_43: 1445957774755669570
+      Tilemap_16px_44: 5332425502735486715
+      Tilemap_16px_45: -2274995419122163598
+      Tilemap_16px_46: -7817702560824128981
+      Tilemap_16px_47: 5232239794558115450
+      Tilemap_16px_48: 5622006049963004831
+      Tilemap_16px_49: -847461262934842000
+      Tilemap_16px_5: -8211340885606687212
+      Tilemap_16px_50: -3369204497710472066
+      Tilemap_16px_51: -4620434410395095440
+      Tilemap_16px_52: 3194806888521001078
+      Tilemap_16px_53: -2140591966272267996
+      Tilemap_16px_54: -8458728400314187242
+      Tilemap_16px_55: -7927063650183674207
+      Tilemap_16px_56: -1749272910101083713
+      Tilemap_16px_57: 4019434529297327280
+      Tilemap_16px_58: 478263026397001573
+      Tilemap_16px_59: 3256461343185768532
+      Tilemap_16px_6: -2190949109025092988
+      Tilemap_16px_60: -6914710230434055709
+      Tilemap_16px_61: 6662292933465556782
+      Tilemap_16px_62: 574605214489353633
+      Tilemap_16px_65: -7424777305972316616
+      Tilemap_16px_66: 9935070244610083
+      Tilemap_16px_67: -4688689591896033694
+      Tilemap_16px_68: 7545150777672954694
+      Tilemap_16px_69: 8409872001727978621
+      Tilemap_16px_7: -5670386205249522108
+      Tilemap_16px_70: -4658506858917997622
+      Tilemap_16px_71: 3085617325379059353
+      Tilemap_16px_72: 961471263223338423
+      Tilemap_16px_73: 6512451573968524003
+      Tilemap_16px_74: 5725897430613183624
+      Tilemap_16px_75: -7901032910189427916
+      Tilemap_16px_76: 4481755638126986174
+      Tilemap_16px_77: -921625965730666487
+      Tilemap_16px_78: 4020669910291351669
+      Tilemap_16px_79: 8850503915752093509
+      Tilemap_16px_8: 96050319414914682
+      Tilemap_16px_83: 6559685524364899360
+      Tilemap_16px_84: 7570834578644248669
+      Tilemap_16px_85: 2214405160811765359
+      Tilemap_16px_86: -8383251787573640976
+      Tilemap_16px_87: -7022655176944055573
+      Tilemap_16px_88: 2844272932738011704
+      Tilemap_16px_89: 2614520037220059068
+      Tilemap_16px_9: -6215654261478664371
+      Tilemap_16px_90: 8346795752112854324
+      Tilemap_16px_91: 4135729114061408430
+      Tilemap_16px_92: -6902251104601911686
+      Tilemap_16px_93: 5834167757608682489
+      Tilemap_16px_94: -4206597760392324970
+      Tilemap_16px_95: -7875195785168013385
+      Tilemap_16px_96: -8287078144547047959
+      Tilemap_16px_97: 8378157613314154871
+      Tilemap_16px_98: -7963332658183836361
+      Tilemap_16px_99: 5288814395094373892
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

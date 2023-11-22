@@ -13,6 +13,8 @@ namespace Assets._Project.Scripts.Ship
 
         public bool IsActive => _isActive;
 
+        public float Health => _maxHealth;
+
         [SerializeField] private PlayerPointsManager _playerPointsManager;
         [SerializeField] private GameObject _damagedAppearence;
 
@@ -21,7 +23,7 @@ namespace Assets._Project.Scripts.Ship
         [SerializeField] private float _maxTimeDelay;
 
         [SerializeField] private int _damageForFixing;
-        [SerializeField] private int _maxHealth;
+        [SerializeField] private float _maxHealth;
 
         private int _accumulatedDamage;
         private bool _isActive;
@@ -61,6 +63,7 @@ namespace Assets._Project.Scripts.Ship
             _isActive = true;
 
             _damagedAppearence.SetActive(_isActive);
+            OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _curHealth });
         }
 
         private void Update()
@@ -84,7 +87,7 @@ namespace Assets._Project.Scripts.Ship
             _accumulatedDamage += _damagePerTick;
         }
 
-        public void Heal(int damage)
+        public void Heal(float damage)
         {
             if(_isActive)
             {
@@ -93,10 +96,18 @@ namespace Assets._Project.Scripts.Ship
                 {
                     SolveTrouble();
                 }
+
+                OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _curHealth });
             }
         }
 
-        public void Hurt(int damage)
+        public void SetHealth(float health)
+        {
+            _curHealth = health;
+            OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _curHealth });
+        }
+
+        public void Hurt(float damage)
         {
             
         }

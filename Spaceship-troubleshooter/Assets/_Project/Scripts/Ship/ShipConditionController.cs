@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class ShipConditionController : MonoBehaviour, IHealth
 {
     public event EventHandler<OnHealthChangedEventArgs> OnHealthChangedEventHandler;
+    public float Health => _maxHullCapacity;
 
     private const string EndScreenSceneName = "EndScreen";
 
-    [SerializeField] private int _maxHullCapacity;
-    private int _currentHullCapacity;
+    [SerializeField] private float _maxHullCapacity;
+    private float _currentHullCapacity;
 
     private void Awake()
     {
@@ -18,13 +19,13 @@ public class ShipConditionController : MonoBehaviour, IHealth
         OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHullCapacity });
     }
 
-    public void Heal(int damage)
+    public void Heal(float damage)
     {
         _currentHullCapacity += damage;
         OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHullCapacity });
     }
 
-    public void Hurt(int damage)
+    public void Hurt(float damage)
     {
         _currentHullCapacity -= damage;
         OnHealthChangedEventHandler?.Invoke(this, new OnHealthChangedEventArgs { CurrentHealth = _currentHullCapacity });

@@ -42,6 +42,9 @@ namespace Assets._Project.Scripts.Entities.BehaviourStates
         public void Handle()
         {
             _curFixTime -= Time.deltaTime;
+            var percentageOfCompletion = (1 - (_curFixTime / _droneModel.FixingTroubleTime)) * 100;
+            _troubleToFix.SetHealth(percentageOfCompletion);
+
             if(_curFixTime <= 0)
             {
                 _troubleToFix.SolveTrouble(_agentContext);

@@ -12,6 +12,7 @@ namespace Assets._Project.Scripts.UI
         // Start is called before the first frame update
         void Start()
         {
+            _healthBarSlider.maxValue = _healthSource.GetComponent<IHealth>().Health;
             _healthBarSlider.value = _healthBarSlider.maxValue;
             _healthSource.GetComponent<IHealth>().OnHealthChangedEventHandler += HealthSource_OnHealthChangedEventHandler;
         }

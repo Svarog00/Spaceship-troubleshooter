@@ -7,8 +7,8 @@ public class EntityMovement : MonoBehaviour
 {
     public event EventHandler OnTargetPositionReachedEventHandler;
 
-    [SerializeField] private float _currentSpeed;
     [SerializeField] private float _maxSpeed;
+    private float _currentSpeed;
 
     private Rigidbody2D _rb2;
 
@@ -19,7 +19,7 @@ public class EntityMovement : MonoBehaviour
     private Pathfinding _pathfinding;
     private int _currentPathIndex = 0;
 
-    [SerializeField] private List<Vector3> _pathVectorList = new List<Vector3>();
+    private List<Vector3> _pathVectorList = new List<Vector3>();
 
     public bool CanMove
     {

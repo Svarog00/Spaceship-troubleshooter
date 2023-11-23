@@ -8,6 +8,7 @@ public class EntityMovement : MonoBehaviour
     public event EventHandler OnTargetPositionReachedEventHandler;
 
     [SerializeField] private float _maxSpeed;
+    [SerializeField] private GameObject _visual;
     private float _currentSpeed;
 
     private Rigidbody2D _rb2;
@@ -104,8 +105,8 @@ public class EntityMovement : MonoBehaviour
     private void Flip() //turn left or right depends on player position
     {
         _faceRight = !_faceRight;
-        Vector3 Scaler = gameObject.transform.localScale;
+        Vector3 Scaler = _visual.transform.localScale;
         Scaler.x *= -1;
-        transform.localScale = Scaler;
+        _visual.transform.localScale = Scaler;
     }
 }

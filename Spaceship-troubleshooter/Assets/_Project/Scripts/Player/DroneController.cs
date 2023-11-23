@@ -26,7 +26,7 @@ public class DroneController : MonoBehaviour
 
     public void SetDroneAvialable(int number)
     {
-        _drones[number].DroneModel.IsAvialable = true;
+        _drones[number].DroneModel.IsAvailable = true;
     }
 
     void Update()

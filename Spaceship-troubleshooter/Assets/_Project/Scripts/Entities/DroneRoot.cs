@@ -7,23 +7,17 @@ using UnityEngine;
 
 namespace Assets._Project.Scripts.Entities
 {
-    public enum DroneType { Small, Human }
-
     public class DroneRoot : MonoBehaviour, IHealth
     {
         public GameObject TroubleObject => _trouble;
         public DroneModel DroneModel => _droneModel;
 
-        public bool IsAvialable => _droneModel.IsAvialable;
-
+        public bool IsAvialable => _droneModel.IsAvailable;
         public float Health => _maxHp;
 
         [SerializeField] private GameObject _pointer;
 
-        [SerializeField] private DroneType _type;
-
         [SerializeField] private float _startFixingTime;
-
         [SerializeField] private float _maxHp;
         private float _currentHealth;
 

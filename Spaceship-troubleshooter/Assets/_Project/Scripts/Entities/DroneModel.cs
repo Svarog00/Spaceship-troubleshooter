@@ -2,7 +2,7 @@
 {
     public class DroneModel
     {
-        public bool IsAvialable;
+        public bool IsAvailable;
         public float FixingTroubleTime => _fixingTroubleTime;
 
         private float _fixingTroubleTime;
@@ -11,7 +11,7 @@
         {
             _fixingTroubleTime = fixingTroubleTime;
 
-            IsAvialable = false;
+            IsAvailable = false;
         }
 
         public void Upgrade()

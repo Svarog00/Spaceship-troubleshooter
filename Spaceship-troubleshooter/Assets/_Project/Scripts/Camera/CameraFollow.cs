@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private GameObject hero;
 
-    private void Start()
+    private void Awake()
     {
         GetComponentInChildren<CinemachineVirtualCamera>().Follow = hero.transform;
     }

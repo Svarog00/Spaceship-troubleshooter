@@ -4,22 +4,26 @@ using UnityEngine.UI;
 
 namespace Assets._Project.Scripts.UI
 {
-    public class UI_HealthBar : MonoBehaviour
+    public class UI_ShipHealthBar : MonoBehaviour
     {
-        [SerializeField] private Slider _healthBarSlider;
         [SerializeField] private GameObject _healthSource;
+        [SerializeField] private Image _healthBarImage;
+
+        private float _maxValue;
 
         // Start is called before the first frame update
         void Start()
         {
-            _healthBarSlider.maxValue = _healthSource.GetComponent<IHealth>().Health;
-            _healthBarSlider.value = _healthBarSlider.maxValue;
+            _maxValue = _healthSource.GetComponent<IHealth>().Health;
+            _healthBarImage.fillAmount = _maxValue / 100;
             _healthSource.GetComponent<IHealth>().OnHealthChangedEventHandler += HealthSource_OnHealthChangedEventHandler;
+
+
         }
 
         private void HealthSource_OnHealthChangedEventHandler(object sender, OnHealthChangedEventArgs e)
         {
-            _healthBarSlider.value = e.CurrentHealth;
+            _healthBarImage.fillAmount = e.CurrentHealth / _maxValue;
         }
     }
 }

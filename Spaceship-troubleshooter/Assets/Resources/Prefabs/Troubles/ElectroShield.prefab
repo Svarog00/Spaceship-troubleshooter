@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 09eff49c96d70fd4b8caff21c0340630, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 09eff49c96d70fd4b8caff21c0340630, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,9 +199,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5037958317496055384}
   - {fileID: 6283174847166394854}
   - {fileID: 9079164077453079957}
-  - {fileID: 5037958317496055384}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9079164077466025394
@@ -266,6 +266,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9079164077466025396}
     m_Modifications:
+    - target: {fileID: 374797478786303821, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374797478786303821, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374797478786303821, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065330559235187570, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065330559235187570, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065330559235187570, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1273574117334774713, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: _healthSource
       value: 
@@ -274,12 +298,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroneHealth
       objectReference: {fileID: 0}
+    - target: {fileID: 2800534925662255404, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: _healthSource
+      value: 
+      objectReference: {fileID: 9079164077466025397}
     - target: {fileID: 6172872650203570829, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6172872650203570829, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172872650203570829, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8193124262729227336, guid: cc87480eaea7cb24cae58204901d4319, type: 3}

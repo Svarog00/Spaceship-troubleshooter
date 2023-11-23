@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 09eff49c96d70fd4b8caff21c0340630, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,9 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointer: {fileID: 1344522326252110534}
-  _type: 0
   _startFixingTime: 15
-  _maxHp: 50
+  _maxHp: 100
 --- !u!114 &7930263966325903765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 1
+  _visual: {fileID: 1514424456185913495}
 --- !u!50 &7923471993927892559
 Rigidbody2D:
   serializedVersion: 4
@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroneHealth
       objectReference: {fileID: 0}
+    - target: {fileID: 2800534925662255404, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: _healthSource
+      value: 
+      objectReference: {fileID: 7930263966325903761}
     - target: {fileID: 5948511717899279022, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.1
@@ -264,11 +268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6172872650203570829, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6172872650203570829, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7537430506624225118, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: m_LocalPosition.y

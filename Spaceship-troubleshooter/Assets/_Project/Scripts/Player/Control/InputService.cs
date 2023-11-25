@@ -29,6 +29,11 @@ namespace Assets.Scripts.Infrastructure.Services
 
         public bool IsShootButtonDown() =>
             Input.GetButtonDown(GunFire);
+        public bool IsShootButtonReleased() => 
+            Input.GetButtonUp(GunFire);
+
+        public bool IsShootButtonHeld() => 
+            Input.GetButton(GunFire);
 
         public bool IsInteractButtonDown() =>
             Input.GetButtonDown(InteractButton);
@@ -39,7 +44,5 @@ namespace Assets.Scripts.Infrastructure.Services
         public bool IsOpenInventoryButtonDown() =>
             Input.GetButtonDown(InvetoryButton);
 
-        public bool IsShootButtonReleased() => 
-            Input.GetButtonUp(GunFire);
     }
 }

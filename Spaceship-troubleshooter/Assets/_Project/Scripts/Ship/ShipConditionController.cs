@@ -8,6 +8,8 @@ public class ShipConditionController : MonoBehaviour, IHealth
     public event EventHandler<OnHealthChangedEventArgs> OnHealthChangedEventHandler;
     public float Health => _maxHullCapacity;
 
+    public bool IsMaxHp => _currentHullCapacity == _maxHullCapacity;
+
     private const string EndScreenSceneName = "EndScreen";
 
     [SerializeField] private float _maxHullCapacity;

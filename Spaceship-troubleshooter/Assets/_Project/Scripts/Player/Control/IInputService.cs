@@ -8,6 +8,7 @@ namespace Assets.Scripts.Infrastructure.Services
 
         bool IsMeleeAttackButtonDown();
         bool IsShootButtonDown();
+        bool IsShootButtonHeld();
         bool IsShootButtonReleased();
 
         bool IsDashButtonDown();

@@ -16,6 +16,7 @@ namespace Assets._Project.Scripts.Entities
     {
         event EventHandler<OnHealthChangedEventArgs> OnHealthChangedEventHandler;
 
+        bool IsMaxHp { get; }
         float Health { get; }
 
         void Heal(float damage);

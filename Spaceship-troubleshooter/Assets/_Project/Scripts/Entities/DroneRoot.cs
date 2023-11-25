@@ -15,6 +15,8 @@ namespace Assets._Project.Scripts.Entities
         public bool IsAvialable => _droneModel.IsAvailable;
         public float Health => _maxHp;
 
+        public bool IsMaxHp => _currentHealth == _maxHp;
+
         [SerializeField] private GameObject _pointer;
 
         [SerializeField] private float _startFixingTime;
@@ -90,7 +92,6 @@ namespace Assets._Project.Scripts.Entities
             if (_currentHealth <= 0)
             {
                 _stateMachine.Enter<BrokenState>();
-                //TODO: Go to broken state awaiting for repair
             }
         }
     }

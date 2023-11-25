@@ -69,21 +69,14 @@ public class PlayerControl : MonoBehaviour
 
     private void GunAttackInput()
     {
-        if(_inputService.IsShootButtonDown() && CanAttack)
+        if(_inputService.IsShootButtonHeld() && CanAttack)
         {
             _isShootButtonDown = true;
+            _weapon.Shoot();
         }
         else if(_inputService.IsShootButtonReleased())
         {
             _isShootButtonDown = false;
-        }
-
-        if(_isShootButtonDown)
-        {
-            _weapon.Shoot();
-        }
-        else
-        {
             _weapon.StopShoot();
         }
     }

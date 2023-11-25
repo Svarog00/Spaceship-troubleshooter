@@ -14,6 +14,7 @@ namespace Assets._Project.Scripts.Player.Weapon
         [SerializeField] private int _damage;
         [SerializeField] private float _range;
         [SerializeField] private float _cooldownTime;
+        [SerializeField] private UI_ActivityCircle _ui_activity;
         [SerializeField] private LineRenderer _lineRenderer;
         [SerializeField] private Animator _animator;
 
@@ -44,7 +45,11 @@ namespace Assets._Project.Scripts.Player.Weapon
                     IHealth targetHealth;
                     if (hit.collider.TryGetComponent(out targetHealth))
                     {
-                        targetHealth.Heal(_damage);
+                        if(!targetHealth.IsMaxHp)
+                        {
+                            _ui_activity.Rotate(_cooldownTime);
+                            targetHealth.Heal(_damage);
+                        }
                         break;
                     }
                 }

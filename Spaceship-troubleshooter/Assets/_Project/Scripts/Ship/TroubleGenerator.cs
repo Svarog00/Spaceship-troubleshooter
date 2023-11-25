@@ -1,6 +1,7 @@
 using Assets._Project.Scripts.Ship;
 using DG.Tweening;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class TroubleGenerator : MonoBehaviour
 {
-    [SerializeField] private CameraShake _camera;
+    [SerializeField] private CameraMovement _camera;
     [SerializeField] private List<Trouble> _troubles;
 
     [Range(0f, 10f)]
@@ -33,9 +34,19 @@ public class TroubleGenerator : MonoBehaviour
         }
     }
 
+    private IEnumerator CountDelay()
+    {
+        _currentTime = _timeBetweenTroubles;
+        while(_currentTime > 0f)
+        {
+            _currentTime -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
     private void ActivateRandomTrouble()
     {
-        _camera.ShakeCamera(1f, 10f);
+        _camera.Shake(0.5f, 0.4f);
 
         var inactiveTroubles = _troubles.Where(trouble => trouble.IsActive == false).ToList();
         if(inactiveTroubles.Count > 0)
@@ -43,5 +54,7 @@ public class TroubleGenerator : MonoBehaviour
             int random = Random.Range(0, inactiveTroubles.Count);
             inactiveTroubles[random].ActivateTrouble();
         }
+
+        //StartCoroutine(CountDelay());
     }
 }

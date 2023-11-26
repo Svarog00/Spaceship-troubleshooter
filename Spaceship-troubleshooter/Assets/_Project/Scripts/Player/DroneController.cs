@@ -26,6 +26,10 @@ public class DroneController : MonoBehaviour
 
     public void SetDroneAvialable(int number)
     {
+        if(number >= _drones.Count)
+        {
+            return;
+        }
         _drones[number].DroneModel.IsAvailable = true;
     }
 

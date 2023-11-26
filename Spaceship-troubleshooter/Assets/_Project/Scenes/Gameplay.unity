@@ -944,17 +944,85 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 5272234757065227347, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6424065770285473439, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1503408197}
+    - target: {fileID: 6424065770285473439, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6720902448938425267, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
       propertyPath: _playerPoints
       value: 
       objectReference: {fileID: 1883295893}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613735905177935344, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8658260585854872153, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
       propertyPath: m_Type
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658260585854872153, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658260585854872153, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658260585854872153, guid: 6ecc7ea6b7d32b340b8db118d41b856e, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1482,8 +1550,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.15325004, y: -0.010749996, z: 0}
-    m_Extent: {x: 1.1847501, y: 0.90685, z: 0}
+    m_Center: {x: 0.1541, y: -0.019149989, z: 0}
+    m_Extent: {x: 1.1816001, y: 0.90395, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1500,11 +1568,6 @@ MonoBehaviour:
   - {x: 0.96697223, y: 0.20547175, z: 0}
   - {x: -0.06923282, y: 0.20115304, z: 0}
   - {x: -0.6707697, y: 0.5284618, z: 0}
---- !u!224 &852772456 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3367102209492161918, guid: b8d2916bc6c3504458b4861141c1a09b, type: 3}
-  m_PrefabInstance: {fileID: 7514089662987133637}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &867754204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,6 +1591,14 @@ PrefabInstance:
     - target: {fileID: 2960032047912045563, guid: f54e882a63240b643a68bd5efd29e8ae, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107112662768438864, guid: f54e882a63240b643a68bd5efd29e8ae, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107112662768438864, guid: f54e882a63240b643a68bd5efd29e8ae, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3376106131464357224, guid: f54e882a63240b643a68bd5efd29e8ae, type: 3}
       propertyPath: m_AnchorMax.y
@@ -22503,8 +22574,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.11619997, y: -0.050250024, z: 0}
-    m_Extent: {x: 1.2867, y: 0.94885004, z: 0}
+    m_Center: {x: -0.11045003, y: -0.046550006, z: 0}
+    m_Extent: {x: 1.29285, y: 0.95035005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -22911,10 +22982,6 @@ PrefabInstance:
       propertyPath: _healthSource
       value: 
       objectReference: {fileID: 1156825527}
-    - target: {fileID: 4218021428939359128, guid: b8d2916bc6c3504458b4861141c1a09b, type: 3}
-      propertyPath: _healthBar
-      value: 
-      objectReference: {fileID: 852772456}
     - target: {fileID: 4289482035282606110, guid: b8d2916bc6c3504458b4861141c1a09b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -23206,6 +23273,10 @@ PrefabInstance:
     - target: {fileID: 6886214273275422267, guid: b8d2916bc6c3504458b4861141c1a09b, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889006441587148718, guid: b8d2916bc6c3504458b4861141c1a09b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7001569307403808823, guid: b8d2916bc6c3504458b4861141c1a09b, type: 3}
       propertyPath: _healthBarImages.Array.data[0]

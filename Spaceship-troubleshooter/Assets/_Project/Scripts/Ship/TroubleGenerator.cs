@@ -19,29 +19,18 @@ public class TroubleGenerator : MonoBehaviour
 
     private void Start()
     {
-        ActivateRandomTrouble();
         _currentTime = _timeBetweenTroubles;
+        ActivateRandomTrouble();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        _currentTime -= Time.deltaTime;
+        /*_currentTime -= Time.deltaTime;
         if (_currentTime <= 0f)
         {
             _currentTime = _timeBetweenTroubles;
             ActivateRandomTrouble();
-        }
-    }
-
-    private IEnumerator CountDelay()
-    {
-        _currentTime = _timeBetweenTroubles;
-        while(_currentTime > 0f)
-        {
-            _currentTime -= Time.deltaTime;
-            yield return null;
-        }
+        }*/
     }
 
     private void ActivateRandomTrouble()
@@ -55,6 +44,18 @@ public class TroubleGenerator : MonoBehaviour
             inactiveTroubles[random].ActivateTrouble();
         }
 
-        //StartCoroutine(CountDelay());
+        StartCoroutine(CountDelay());
+    }
+
+    private IEnumerator CountDelay()
+    {
+        _currentTime = _timeBetweenTroubles;
+        while (_currentTime > 0f)
+        {
+            _currentTime -= Time.deltaTime;
+            yield return null;
+        }
+
+        ActivateRandomTrouble();
     }
 }

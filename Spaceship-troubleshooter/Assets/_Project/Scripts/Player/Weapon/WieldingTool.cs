@@ -14,7 +14,7 @@ namespace Assets._Project.Scripts.Player.Weapon
         [SerializeField] private int _damage;
         [SerializeField] private float _range;
         [SerializeField] private float _cooldownTime;
-        [SerializeField] private UI_ActivityCircle _ui_activity;
+        [SerializeField] private UI_ActivityCircle _activityCircle;
         [SerializeField] private LineRenderer _lineRenderer;
         [SerializeField] private Animator _animator;
 
@@ -36,25 +36,29 @@ namespace Assets._Project.Scripts.Player.Weapon
         public void Shoot()
         {
             _lineRenderer.enabled = true;
-            if (CanShoot())
+            if (!CanShoot())
             {
-                _direction = GetDirectionToMouse();
-                RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, _direction, _range);
-                foreach (var hit in hits)
-                {
-                    IHealth targetHealth;
-                    if (hit.collider.TryGetComponent(out targetHealth))
-                    {
-                        if(!targetHealth.IsMaxHp)
-                        {
-                            _ui_activity.Rotate(_cooldownTime);
-                            targetHealth.Heal(_damage);
-                        }
-                        break;
-                    }
-                }
-                _curCooldownTime = _cooldownTime;
+                return;
             }
+
+            _direction = GetDirectionToMouse();
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, _direction, _range);
+            foreach (var hit in hits)
+            {
+                IHealth targetHealth;
+                if (hit.collider.TryGetComponent(out targetHealth))
+                {
+                    _activityCircle.Toggle(true);
+
+                    if (!targetHealth.IsMaxHp)
+                    {
+                        _activityCircle.Rotate(_cooldownTime);
+                        targetHealth.Heal(_damage);
+                    }
+                    break;
+                }
+            }
+            _curCooldownTime = _cooldownTime;
         }
 
         private void UpdateRayVisual()
@@ -63,8 +67,6 @@ namespace Assets._Project.Scripts.Player.Weapon
             endOfLine.z = 0;
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, endOfLine);
-
-
         }
 
         private void Cooldown()
@@ -83,6 +85,7 @@ namespace Assets._Project.Scripts.Player.Weapon
         public void StopShoot()
         {
             _lineRenderer.enabled = false;
+            _activityCircle.Toggle(false);
         }
 
         private Vector3 GetMousePosition()

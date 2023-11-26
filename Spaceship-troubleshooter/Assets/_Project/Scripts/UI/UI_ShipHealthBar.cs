@@ -16,9 +16,8 @@ namespace Assets._Project.Scripts.UI
         {
             _maxValue = _healthSource.GetComponent<IHealth>().Health;
             _healthBarImage.fillAmount = _maxValue / 100;
+
             _healthSource.GetComponent<IHealth>().OnHealthChangedEventHandler += HealthSource_OnHealthChangedEventHandler;
-
-
         }
 
         private void HealthSource_OnHealthChangedEventHandler(object sender, OnHealthChangedEventArgs e)

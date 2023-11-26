@@ -13,15 +13,13 @@ public class UI_ActivityCircle : MonoBehaviour
         _visual.SetActive(false);
     }
 
-    public void Rotate(float duration)
+    public void Toggle(bool isActive)
     {
-        _visual.SetActive(true);
-        _visual.transform.DORotate(_visual.transform.rotation.eulerAngles +_rotation, duration);
-        Invoke("TurnOff", .5f);
+        _visual.SetActive(isActive);
     }
 
-    private void TurnOff()
+    public void Rotate(float duration)
     {
-        _visual.SetActive(false);
+        _visual.transform.DORotate(_visual.transform.rotation.eulerAngles + _rotation, duration);
     }
 }

@@ -121,12 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSource: {fileID: 0}
-  _healthBarImage:
-  - {fileID: 4017460933837491456}
-  - {fileID: 5007480131712484571}
-  - {fileID: 5833990669412813439}
-  - {fileID: 1504019222102274305}
-  - {fileID: 6284619024372604100}
+  _healthBar: {fileID: 3669952212235218890}
 --- !u!1 &3239118182951135812
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,15 +80,13 @@ namespace Assets._Project.Scripts.Ship
             if(_isActive)
             {
                 _curTimeDelay -= Time.deltaTime;
-                if (CanDamage())
+                if (_curTimeDelay <= 0f)
                 {
                     DamageShip();
                     _curTimeDelay = _maxTimeDelay;
                 }
             }
         }
-
-        private bool CanDamage() => _curTimeDelay <= 0f;
 
         private void DamageShip()
         {

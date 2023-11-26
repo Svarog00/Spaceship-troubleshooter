@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPointsManager: {fileID: 0}
   _damagedAppearence: {fileID: 9163749711540794224}
+  _light2D: {fileID: 0}
   _shipCondition: {fileID: 0}
   _damagePerTick: 1
   _maxTimeDelay: 0.5
@@ -246,6 +247,10 @@ PrefabInstance:
       propertyPath: _healthSource
       value: 
       objectReference: {fileID: 9163749711527590739}
+    - target: {fileID: 2800534925662255404, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
+      propertyPath: _healthBarImages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6172872650203570829, guid: cc87480eaea7cb24cae58204901d4319, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
